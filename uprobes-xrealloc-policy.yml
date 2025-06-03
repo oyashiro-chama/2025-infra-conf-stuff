@@ -1,0 +1,12 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: "bash"
+spec:
+  uprobes:
+  - path: "/procRoot/<PID>/root/bin/bash"
+    symbols:
+    - "xrealloc"
+    args:
+    - index: 0
+      type: "string"
